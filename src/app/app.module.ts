@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpModule } from '@angular/http';
 
 // Path
 import { APP_ROUTING } from './app.routes';
@@ -11,6 +12,9 @@ import { FooterComponent } from './components/footer/footer.component';
 import { PortafolioComponent } from './components/portafolio/portafolio.component';
 import { AboutComponent } from './components/about/about.component';
 import { ProductComponent } from './components/product/product.component';
+
+// Services
+import { InformationService } from './services/information.service';
 
 
 @NgModule({
@@ -24,9 +28,12 @@ import { ProductComponent } from './components/product/product.component';
   ],
   imports: [
     BrowserModule,
-    APP_ROUTING
+    APP_ROUTING,
+    HttpModule
   ],
-  providers: [],
+  providers: [
+    InformationService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
