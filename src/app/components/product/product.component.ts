@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ProductsService } from '../../services/products.service';
 
 
 @Component({
@@ -8,9 +9,16 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ProductComponent {
 
-  constructor(private route:ActivatedRoute) {
+  producto:any = undefined;
+  cod:string   = undefined;
+
+  constructor(private route:ActivatedRoute, public _product:ProductsService) {
     route.params.subscribe(parametros =>{
-      console.log(parametros['id']);
+      this._product.cargarProducto(parametros['id'])
+                    .subscribe(data=>{
+                      this.producto = data.json();
+                      this.cod = parametros['id'];
+                  });
     });
    }
 
