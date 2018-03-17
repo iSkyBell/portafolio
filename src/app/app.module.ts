@@ -15,6 +15,7 @@ import { ProductComponent } from './components/product/product.component';
 
 // Services
 import { InformationService } from './services/information.service';
+import { ProductsService } from './services/products.service';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { InformationService } from './services/information.service';
     HttpModule
   ],
   providers: [
-    InformationService
+    InformationService,
+    ProductsService
   ],
   bootstrap: [AppComponent]
 })
